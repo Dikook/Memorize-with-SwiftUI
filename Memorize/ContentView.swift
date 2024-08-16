@@ -14,6 +14,7 @@ struct ContentView: View {
             RoundedNumberOne(faceIsUp: true)
             RoundedNumberOne()
             RoundedNumberOne()
+            
         }
         .foregroundColor(.orange)
         .padding()
