@@ -17,6 +17,9 @@ struct ContentView: View {
             ForEach(0..<countCard, id: \.self) { index in
                 RoundedNumberOne(emoji: emojis[index])
             }
+            Button("Remove Card") {
+                countCard = countCard - 1
+            }
             Button("Add Card") {
                 countCard = countCard + 1
             }
