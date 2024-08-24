@@ -8,24 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["😀", "😃", "😄", "😁", "😇", "3", "4", "5", "6", "7"]
+    var emojisAnimals = ["🐶", "🐻‍❄️", "🐹", "🐮", "🐵", "🪿", "🐣", "🦉", "🪱", "🐅"]
+    
     @State var countCard: Int = 4
     
     
     var body: some View {
-        HStack {
-            ForEach(0..<countCard, id: \.self) { index in
-                RoundedNumberOne(emoji: emojis[index])
-            }
-            Button("Remove Card") {
-                countCard = countCard - 1
-            }
-            Button("Add Card") {
-                countCard = countCard + 1
+        NavigationStack {
+            VStack {
+                HStack {
+                    cards
+                        .foregroundColor(.orange)
+                    removeButton
+                    addButton
+                }
+                .navigationTitle("Memorize")
+                .navigationBarTitleDisplayMode(.large)
+                
+                Button("Are you ok?") {
+                    
+                }
             }
         }
-        .foregroundColor(.orange)
         .padding()
+    }
+    
+    
+    
+    var cards: some View {
+        ForEach(0..<countCard, id: \.self) { index in
+            RoundedNumberOne(emoji: emojisAnimals[index])
+        }
+
+    }
+    
+    var removeButton: some View {
+        return Button("Remove Card") {
+            countCard = countCard - 1
+        }
+    }
+    
+    var addButton: some View {
+        return Button("Add Card") {
+            countCard = countCard + 1
+        }
     }
 }
 
